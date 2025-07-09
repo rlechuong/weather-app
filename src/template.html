@@ -6,12 +6,84 @@
     <title>Weather App</title>
   </head>
   <body>
-    <div id="current-conditions-container">
-      <div>Current Address</div>
-      <div id="current-conditions-address"></div>
-      <div id="current-conditions-time"></div>
-      <div id="current-conditions-temperature"></div>
-      <div id="current-conditions-conditions"></div>
+    <div id="current-weather-container">
+      <div id="current-weather-header"></div>
+      <div id="current-weather-body">
+        <div id="current-weather-body-left"></div>
+        <div id="current-weather-body-right"></div>
+      </div>
+      <div id="current-weather-body-bottom"></div>
+    </div>
+
+    <!-- Container Containing All Of Current Day's Weather Data -->
+    <div id="today-container">
+      <div id="today-header"></div>
+
+      <div id="today-body">
+        <div id="today-column-one">
+          <div id="today-max-temp-container">
+            <div>Max Temperature</div>
+            <div id="today-max-temp-content"></div>
+          </div>
+          <div id="today-mix-temp-container">
+            <div>Min Temperature</div>
+            <div id="today-min-temp-content"></div>
+          </div>
+          <div id="today-humidity-container">
+            <div>Humidity</div>
+            <div id="today-humidity-content"></div>
+          </div>
+          <div id="today-uv-index-container">
+            <div>UV Index</div>
+            <div id="today-uv-index-content"></div>
+          </div>
+        </div>
+
+        <div id="today-column-two">
+          <div id="today-dew-point-container">
+            <div>Dew Point</div>
+            <div id="today-dew-point-content"></div>
+          </div>
+          <div id="today-pressure-container">
+            <div>Pressure</div>
+            <div id="today-pressure-content"></div>
+          </div>
+          <div id="today-visibility-container">
+            <div>Visibility</div>
+            <div id="today-visibility-content"></div>
+          </div>
+        </div>
+
+        <div id="today-column-three">
+          <div id="today-wind-direction-container">
+            <div>Wind Direction</div>
+            <div id="today-wind-direction-content"></div>
+          </div>
+          <div id="today-wind-gust-container">
+            <div>Wind Gust</div>
+            <div id="today-wind-gust-content"></div>
+          </div>
+          <div id="today-wind-speed-container">
+            <div>Wind Speed</div>
+            <div id="today-wind-speed-content"></div>
+          </div>
+        </div>
+
+        <div id="today-column-four">
+          <div id="today-sunrise-container">
+            <div>Sunrise</div>
+            <div id="today-sunrise-content"></div>
+          </div>
+          <div id="today-sunset-container">
+            <div>Sunset</div>
+            <div id="today-sunset-content"></div>
+          </div>
+          <div id="today-moon-phase-container">
+            <div>Sunset</div>
+            <div id="today-moon-phase-content"></div>
+          </div>
+        </div>
+      </div>
     </div>
   </body>
 </html>

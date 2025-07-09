@@ -66,3 +66,66 @@ h6 {
 #__next {
   isolation: isolate;
 }
+
+html {
+  font-family: Arial, sans-serif;
+  width: 100vw;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+#current-weather-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 40rem;
+}
+
+#current-weather-header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+#current-weather-body {
+  display: flex;
+  justify-content: left;
+  gap: 1rem;
+}
+
+#current-weather-body-right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#today-container {
+  display: flex;
+  flex-direction: column;
+  width: min(90vw, 100rem);
+}
+
+#today-body {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  gap: 1rem;
+  justify-items: center;
+}
+
+#today-body > div {
+  display: flex;
+  flex-direction: column;
+  width: 20rem;
+}
+
+#today-body > div > div {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid grey;
+}
