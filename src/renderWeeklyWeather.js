@@ -4,7 +4,7 @@ import raindrop from "./img/raindrop.png";
 
 function renderWeeklyWeather(data) {
   let weeklyContainer = document.querySelector("#weekly-container");
-  
+
   weeklyContainer.textContent = "";
 
   for (let i = 0; i < data.weeklyData.length; i++) {
@@ -53,6 +53,19 @@ function renderWeeklyWeather(data) {
     let weeklyDescription = data.weeklyData[i].description;
     weeklyDescriptionDiv.textContent = `${weeklyDescription}`;
     dayContainer.appendChild(weeklyDescriptionDiv);
+
+    // Raindrop
+    let rainDropImg = document.createElement("img");
+    rainDropImg.src = raindrop;
+    rainDropImg.style.height = "2rem";
+    rainDropImg.style.weight = "2rem";
+    dayContainer.appendChild(rainDropImg);
+
+    // Precipitation Probability
+    let precipProbDiv = document.createElement("id");
+    let precipProb = data.weeklyData[i].precipprob;
+    precipProbDiv.textContent = `${precipProb} %`;
+    dayContainer.appendChild(precipProbDiv);
 
     weeklyContainer.appendChild(dayContainer);
   }

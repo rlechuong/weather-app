@@ -4,32 +4,21 @@ import { renderTodayWeather } from "./renderTodayWeather.js";
 import { renderHourlyWeather } from "./renderHourlyWeather.js";
 import { renderWeeklyWeather } from "./renderWeeklyWeather.js";
 
-// fetch(
-//   "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Washington,DC,USA?key=HVM9MZXY5D5X3JPZ5RBMEM7W3",
-// )
-//   .then(function (response) {
-//     return response.json();
-//   })
-//   .then(function (response) {
-//     console.log(response);
-//   });
+let processingDiv = document.querySelector("#processing");
 
 async function getWeatherData(location, unitGroup) {
+  processingDiv.style.display = "block";
   const url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}?key=HVM9MZXY5D5X3JPZ5RBMEM7W3&unitGroup=${unitGroup}`;
   try {
     const response = await fetch(url);
 
     if (!response.ok) {
-      // const urlError = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/DC?key=HVM9MZXY5D5X3JPZ5RBMEM7W3&unitGroup=us`;
-      // const response = await fetch(urlError);
-      // const weatherData = await response.json();
-      // console.log(weatherData);
-      // return processData(weatherData, unitGroup);
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
 
     const weatherData = await response.json();
     console.log(weatherData);
+    processingDiv.style.display = "none";
     return processData(weatherData, unitGroup);
   } catch (error) {
     console.error(`This is the ${error}`);
@@ -139,13 +128,33 @@ searchButton.addEventListener("click", function (event) {
     toggledUnit = "metric";
   }
 
-  getWeatherData(searchBox.value, toggledUnit).then(function (data) {
-    renderCurrentWeather(data);
-    renderTodayWeather(data);
-    renderHourlyWeather(data);
-    renderWeeklyWeather(data);
-    toggleUnits();
-  });
+  let currentAddress = document.querySelector(".current-resolved-address");
+
+  getWeatherData(searchBox.value, toggledUnit)
+    .then(function (data) {
+      renderCurrentWeather(data);
+      renderTodayWeather(data);
+      renderHourlyWeather(data);
+      renderWeeklyWeather(data);
+    })
+    .catch((error) => {
+      console.log(error);
+      alert("Invalid Search.");
+      if (currentAddress) {
+        getWeatherData(
+          currentAddress.getAttribute("data-address"),
+          toggledUnit,
+        ).then(function (data) {
+          renderCurrentWeather(data);
+          renderTodayWeather(data);
+          renderHourlyWeather(data);
+          renderWeeklyWeather(data);
+        });
+      } else {
+        processingDiv.style.display = "none";
+        return;
+      }
+    });
 });
 
 function toggleUnits() {
@@ -157,13 +166,18 @@ function toggleUnits() {
     fButton.disabled = true;
     cButton.classList.remove("toggled");
     cButton.disabled = false;
+
     let currentAddress = document.querySelector(".current-resolved-address");
-    getWeatherData(currentAddress.textContent, "us").then(function (data) {
-      renderCurrentWeather(data);
-      renderTodayWeather(data);
-      renderHourlyWeather(data);
-      renderWeeklyWeather(data);
-    });
+    if (currentAddress) {
+      getWeatherData(currentAddress.getAttribute("data-address"), "us").then(
+        function (data) {
+          renderCurrentWeather(data);
+          renderTodayWeather(data);
+          renderHourlyWeather(data);
+          renderWeeklyWeather(data);
+        },
+      );
+    }
   });
 
   cButton.addEventListener("click", () => {
@@ -172,12 +186,17 @@ function toggleUnits() {
     fButton.classList.remove("toggled");
     fButton.disabled = false;
     let currentAddress = document.querySelector(".current-resolved-address");
-    getWeatherData(currentAddress.textContent, "metric").then(function (data) {
-      renderCurrentWeather(data);
-      renderTodayWeather(data);
-      renderHourlyWeather(data);
-      renderWeeklyWeather(data);
-    });
+    if (currentAddress) {
+      getWeatherData(
+        currentAddress.getAttribute("data-address"),
+        "metric",
+      ).then(function (data) {
+        renderCurrentWeather(data);
+        renderTodayWeather(data);
+        renderHourlyWeather(data);
+        renderWeeklyWeather(data);
+      });
+    }
   });
 }
 
@@ -186,7 +205,6 @@ getWeatherData("Centreville", "us").then(function (data) {
   renderTodayWeather(data);
   renderHourlyWeather(data);
   renderWeeklyWeather(data);
-  toggleUnits();
 });
 
-
+toggleUnits();

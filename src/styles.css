@@ -157,3 +157,30 @@ body {
 .single-hourly-container {
   width: 4rem;
 }
+
+#weekly-container {
+  display: flex;
+  flex-direction: column;
+  width: min(75rem, 90vw);
+  margin: auto;
+}
+
+.day-container {
+  display: grid;
+  grid-template-columns: 8rem 4rem 4rem 8rem 1fr 4rem 4rem;
+  border-top: 1px solid grey;
+  align-items: center;
+}
+
+.day-container :nth-child(2) {
+  justify-self: center;
+}
+
+.day-container :nth-child(3) {
+  justify-self: center;
+}
+
+.day-container :nth-child(4) {
+  justify-self: end;
+  margin-right: 1rem;
+}

@@ -24,6 +24,7 @@ function renderCurrentWeather(data) {
   const currentResolvedAddressDiv = document.createElement("div");
   currentResolvedAddressDiv.classList.add("current-resolved-address");
   const currentResolvedAddress = data.resolvedAddress;
+  currentResolvedAddressDiv.setAttribute("data-address", data.resolvedAddress);
   currentResolvedAddressDiv.textContent = currentResolvedAddress;
   currentWeatherHeader.appendChild(currentResolvedAddressDiv);
 
