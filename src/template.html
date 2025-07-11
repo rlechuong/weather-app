@@ -6,6 +6,19 @@
     <title>Weather App</title>
   </head>
   <body>
+    <div id="header">
+      <form id="search-form">
+        <label for="search">Location:</label>
+        <input type="text" id="search" name="search" />
+        <button type="submit" id="submit-button">Search</button>
+      </form>
+
+      <div id="units-button-container">
+        <button id="f-button" class="toggled" disabled>F</button>
+        <button id="c-button">C</div>
+      </div>
+    </div>
+
     <div id="current-weather-container">
       <div id="current-weather-header"></div>
       <div id="current-weather-body">
@@ -85,5 +98,13 @@
         </div>
       </div>
     </div>
+
+    <!-- Container Containing All Of Current Day's Weather Data -->
+
+    <div id="hourly-container"></div>
+
+    <!-- Container Containing Weekly Weather Data -->
+
+    <div id="weekly-container"></div>
   </body>
 </html>
