@@ -78,6 +78,15 @@ body {
   gap: 1rem;
 }
 
+#processing-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 1rem;
+  margin-top: 0.5rem;
+  gap: 5rem;
+}
+
 #header {
   display: grid;
   grid-template-columns: 1fr auto 1fr;

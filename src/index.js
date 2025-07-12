@@ -5,6 +5,7 @@ import { renderHourlyWeather } from "./renderHourlyWeather.js";
 import { renderWeeklyWeather } from "./renderWeeklyWeather.js";
 
 let processingDiv = document.querySelector("#processing");
+let errorMessageDiv = document.querySelector("#error-message");
 
 async function getWeatherData(location, unitGroup) {
   processingDiv.style.display = "block";
@@ -22,6 +23,7 @@ async function getWeatherData(location, unitGroup) {
     return processData(weatherData, unitGroup);
   } catch (error) {
     console.error(`This is the ${error}`);
+    throw new Error(`HTTP error!`);
   }
 }
 
@@ -115,6 +117,8 @@ let searchButton = document.querySelector("#submit-button");
 searchButton.addEventListener("click", function (event) {
   event.preventDefault();
 
+  errorMessageDiv.style.display = "none";
+
   const searchBox = document.querySelector("#search");
 
   let fButton = document.querySelector("#f-button");
@@ -139,21 +143,22 @@ searchButton.addEventListener("click", function (event) {
     })
     .catch((error) => {
       console.log(error);
-      alert("Invalid Search.");
-      if (currentAddress) {
-        getWeatherData(
-          currentAddress.getAttribute("data-address"),
-          toggledUnit,
-        ).then(function (data) {
-          renderCurrentWeather(data);
-          renderTodayWeather(data);
-          renderHourlyWeather(data);
-          renderWeeklyWeather(data);
-        });
-      } else {
-        processingDiv.style.display = "none";
-        return;
-      }
+      errorMessageDiv.style.display = "block";
+      processingDiv.style.display = "none";
+      // if (currentAddress) {
+      //   getWeatherData(
+      //     currentAddress.getAttribute("data-address"),
+      //     toggledUnit,
+      //   ).then(function (data) {
+      //     renderCurrentWeather(data);
+      //     renderTodayWeather(data);
+      //     renderHourlyWeather(data);
+      //     renderWeeklyWeather(data);
+      //   });
+      // } else {
+      //   processingDiv.style.display = "none";
+      //   return;
+      // }
     });
 });
 
@@ -200,11 +205,11 @@ function toggleUnits() {
   });
 }
 
-getWeatherData("Centreville", "us").then(function (data) {
-  renderCurrentWeather(data);
-  renderTodayWeather(data);
-  renderHourlyWeather(data);
-  renderWeeklyWeather(data);
-});
+// getWeatherData("Centreville", "us").then(function (data) {
+//   renderCurrentWeather(data);
+//   renderTodayWeather(data);
+//   renderHourlyWeather(data);
+//   renderWeeklyWeather(data);
+// });
 
 toggleUnits();

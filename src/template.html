@@ -6,6 +6,13 @@
     <title>Weather App</title>
   </head>
   <body>
+    <div id="processing-container">
+      <div id="error-message" style="display: none">
+        Invalid Search. Try Again.
+      </div>
+      <div id="processing" style="display: none">Retrieving Info...</div>
+    </div>
+
     <div id="header">
       <form id="search-form">
         <label for="search">Location:</label>
@@ -15,11 +22,9 @@
 
       <div id="units-button-container">
         <button id="f-button" class="toggled" disabled>F</button>
-        <button id="c-button">C</div>
+        <button id="c-button">C</button>
       </div>
     </div>
-
-    <div id="processing" style="display: none">Retrieving Information...</div>
 
     <div id="current-weather-container">
       <div id="current-weather-header"></div>
