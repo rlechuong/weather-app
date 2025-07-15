@@ -8,7 +8,7 @@ function renderTodayWeather(data) {
   // Date
   const todayDateDiv = document.createElement("div");
   const todayDate = convertDateForToday(data.weeklyData[0].datetime);
-  todayDateDiv.textContent = `Date: ${todayDate}`;
+  todayDateDiv.textContent = `Today - ${todayDate}`;
   todayHeader.appendChild(todayDateDiv);
 
   // Description

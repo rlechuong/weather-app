@@ -1,9 +1,9 @@
 import { getWeatherIcon } from "./weatherIcons.js";
 import { convertDateForWeekly } from "./convertUnits.js";
-import raindrop from "./img/raindrop.png";
+import raindrop from "./img/raindrop.svg";
 
 function renderWeeklyWeather(data) {
-  let weeklyContainer = document.querySelector("#weekly-container");
+  let weeklyContainer = document.querySelector("#weekly-container-body");
 
   weeklyContainer.textContent = "";
 
@@ -28,6 +28,11 @@ function renderWeeklyWeather(data) {
     }
     weeklyTempMaxDiv.textContent = `${weeklyTempMax} ${weeklyTempMaxUnit}`;
     dayContainer.appendChild(weeklyTempMaxDiv);
+
+    let weeklyTempDividerDiv = document.createElement("div");
+    let weeklyTempDivider = "|";
+    weeklyTempDividerDiv.textContent = weeklyTempDivider;
+    dayContainer.appendChild(weeklyTempDividerDiv);
 
     // Temperature Min
     let weeklyTempMinDiv = document.createElement("div");
@@ -57,8 +62,8 @@ function renderWeeklyWeather(data) {
     // Raindrop
     let rainDropImg = document.createElement("img");
     rainDropImg.src = raindrop;
-    rainDropImg.style.height = "2rem";
-    rainDropImg.style.weight = "2rem";
+    rainDropImg.style.height = "1.5rem";
+    rainDropImg.style.weight = "1.5rem";
     dayContainer.appendChild(rainDropImg);
 
     // Precipitation Probability

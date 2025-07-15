@@ -15,8 +15,8 @@
 
     <div id="header">
       <form id="search-form">
-        <label for="search">Location:</label>
-        <input type="text" id="search" name="search" />
+        <label for="search">Location</label>
+        <input type="text" id="search" name="search"/>
         <button type="submit" id="submit-button">Search</button>
       </form>
 
@@ -38,7 +38,6 @@
     <!-- Container Containing All Of Current Day's Weather Data -->
     <div id="today-container">
       <div id="today-header"></div>
-
       <div id="today-body">
         <div id="today-column-one">
           <div id="today-max-temp-container">
@@ -99,7 +98,7 @@
             <div id="today-sunset-content"></div>
           </div>
           <div id="today-moon-phase-container">
-            <div>Sunset</div>
+            <div>Moon Phase</div>
             <div id="today-moon-phase-content"></div>
           </div>
         </div>
@@ -108,10 +107,16 @@
 
     <!-- Container Containing All Of Current Day's Weather Data -->
 
-    <div id="hourly-container"></div>
+    <div id="hourly-container">
+      <div id="hourly-container-header">Today's Hourly Forecast</div>
+      <div id="hourly-container-body"></div>
+    </div>
 
     <!-- Container Containing Weekly Weather Data -->
 
-    <div id="weekly-container"></div>
+    <div id="weekly-container">
+      <div id="weekly-container-header">10 Day Forecast</div>
+      <div id="weekly-container-body"></div>
+    </div>
   </body>
 </html>

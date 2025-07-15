@@ -1,9 +1,9 @@
 import { convertTimeForHourly } from "./convertUnits.js";
 import { getWeatherIcon } from "./weatherIcons.js";
-import raindrop from "./img/raindrop.png";
+import raindrop from "./img/raindrop.svg";
 
 function renderHourlyWeather(data) {
-  const hourlyContainer = document.querySelector("#hourly-container");
+  const hourlyContainer = document.querySelector("#hourly-container-body");
 
   hourlyContainer.textContent = "";
 
@@ -23,7 +23,7 @@ function renderHourlyWeather(data) {
     let hourlyTimeArray = data.hourlyData[i].datetime.split(":");
 
     if (currentTimeArray[0] === hourlyTimeArray[0]) {
-      singleHourlyContainer.style.outline = "2px solid blue";
+      singleHourlyContainer.style.outline = "2px solid #bb86fc";
     }
 
     // Icon

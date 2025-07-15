@@ -132,8 +132,6 @@ searchButton.addEventListener("click", function (event) {
     toggledUnit = "metric";
   }
 
-  let currentAddress = document.querySelector(".current-resolved-address");
-
   getWeatherData(searchBox.value, toggledUnit)
     .then(function (data) {
       renderCurrentWeather(data);

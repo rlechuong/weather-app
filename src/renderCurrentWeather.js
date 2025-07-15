@@ -37,7 +37,7 @@ function renderCurrentWeather(data) {
   // Weather Icon
   const currentIconImg = document.createElement("img");
   currentIconImg.src = getWeatherIcon(data.currentConditions.icon);
-  currentIconImg.style.width = "10rem";
+  currentIconImg.style.height = "10rem";
   currentIconImg.style.width = "10rem";
   currentWeatherBodyLeft.appendChild(currentIconImg);
 
@@ -51,7 +51,6 @@ function renderCurrentWeather(data) {
     currentTemperatureUnit = "°C";
   }
   currentTemperatureDiv.textContent = `${currentTemperature}${currentTemperatureUnit}`;
-  currentTemperatureDiv.style.fontSize = "4rem";
   currentWeatherBodyRight.appendChild(currentTemperatureDiv);
 
   // Feels Like
