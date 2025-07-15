@@ -203,11 +203,11 @@ function toggleUnits() {
   });
 }
 
-// getWeatherData("Centreville", "us").then(function (data) {
-//   renderCurrentWeather(data);
-//   renderTodayWeather(data);
-//   renderHourlyWeather(data);
-//   renderWeeklyWeather(data);
-// });
+getWeatherData("Centreville", "us").then(function (data) {
+  renderCurrentWeather(data);
+  renderTodayWeather(data);
+  renderHourlyWeather(data);
+  renderWeeklyWeather(data);
+});
 
 toggleUnits();

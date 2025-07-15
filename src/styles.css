@@ -195,7 +195,7 @@ body {
   align-items: center;
 }
 
-#current-weather-body-right :nth-child(1){
+#current-weather-body-right :nth-child(1) {
   font-size: 4rem;
 }
 
@@ -218,7 +218,7 @@ body {
 #today-container {
   display: flex;
   flex-direction: column;
-  width: min(90vw, 100rem);
+  width: min(90vw, 95rem);
   margin: auto;
   background: #1e1e1e;
   gap: 1rem;
@@ -239,6 +239,7 @@ body {
 
 #today-header :nth-child(2) {
   font-weight: bold;
+  text-align: center;
 }
 
 #today-body {
@@ -273,7 +274,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  width: 90vw;
+  width: min(95rem, 90vw);
   background: #1e1e1e;
   margin: auto;
   padding: 1rem;
@@ -288,14 +289,14 @@ body {
 
 #hourly-container-body {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(6rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(6.5rem, 1fr));
   gap: 1rem;
   justify-items: center;
 }
 
 .single-hourly-container {
   padding: 0.5rem;
-  width: 5rem;
+  width: 5.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -371,4 +372,96 @@ body {
 
 .day-container :nth-child(8) {
   font-weight: bold;
+}
+
+@media screen and (max-width: 900px) {
+  #header {
+    margin-top: -0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  #units-button-container {
+    justify-self: center;
+    align-self: center;
+    display: flex;
+    gap: 0.5rem;
+  }
+  #current-weather-container {
+    display: flex;
+    margin: auto;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.5rem;
+    width: 90vw;
+    background: #1e1e1e;
+    padding: 1rem;
+  }
+  #current-weather-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  .day-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr ;
+    grid-template-rows: repeat(4, 3rem);
+    border-top: 1px solid grey;
+    justify-items: center;
+    align-items: center;
+    padding: 0.5rem;
+  }
+
+  .day-container :nth-child(1) {
+    grid-column: 1 / 6;
+    grid-row: 1 / 2;
+  }
+
+  .day-container :nth-child(2) {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+  }
+
+  .day-container :nth-child(3) {
+    grid-column: 3 / 4;
+    grid-row: 2 / 3;
+  }
+
+  .day-container :nth-child(4) {
+    grid-column: 4 / 5;
+    grid-row: 2 / 3;
+  }
+
+  .day-container :nth-child(5) {
+    grid-column: 2 / 3;
+    grid-row: 3 / 4;
+    justify-self: center;
+    align-self: center;
+    margin-right: 0;
+    justify-self: end;
+  }
+
+  .day-container :nth-child(6) {
+    text-align: center;
+    grid-column: 1 / 6;
+    grid-row: 4 / 5;
+  }
+
+  .day-container :nth-child(7) {
+    text-align: center;
+    grid-column: 3/ 4;
+    grid-row: 3 / 4;
+    justify-self: end;
+  }
+
+  .day-container :nth-child(8) {
+    text-align: center;
+    grid-column: 4 / 5;
+    grid-row: 3 / 4;
+    justify-self: start;
+    padding-left: 0.25rem;
+  }
 }
