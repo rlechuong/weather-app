@@ -1,5 +1,5 @@
-import { getWeatherIcon } from "./weatherIcons.js";
 import { convertDateForWeekly } from "./convertUnits.js";
+import { getWeatherIcon } from "./weatherIcons.js";
 import raindrop from "./img/raindrop.svg";
 
 function renderWeeklyWeather(data) {

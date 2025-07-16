@@ -1,5 +1,5 @@
-import { getWeatherIcon } from "./weatherIcons.js";
 import { convertTime } from "./convertUnits.js";
+import { getWeatherIcon } from "./weatherIcons.js";
 
 function renderCurrentWeather(data) {
   const currentWeatherHeader = document.querySelector(
