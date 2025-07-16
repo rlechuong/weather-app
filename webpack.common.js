@@ -28,12 +28,14 @@ module.exports = {
         type: "asset/resource",
       },
       {
-        test: /\.svg$/i, // Explicit rule for SVG
+        test: /\.svg$/,
         use: [
           {
-            loader: "file-loader", // or "url-loader" if you want to inline SVGs as data URIs
+            loader: "svg-url-loader",
             options: {
-              name: "assets/[name].[hash].[ext]", // custom path and name for output files
+              // You can add options here, e.g., to inline small SVGs
+              limit: 10 * 1024, // 10 KB
+              noquotes: true,
             },
           },
         ],
