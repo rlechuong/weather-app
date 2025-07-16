@@ -27,6 +27,17 @@ module.exports = {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
         type: "asset/resource",
       },
+      {
+        test: /\.svg$/i, // Explicit rule for SVG
+        use: [
+          {
+            loader: "file-loader", // or "url-loader" if you want to inline SVGs as data URIs
+            options: {
+              name: "assets/[name].[hash].[ext]", // custom path and name for output files
+            },
+          },
+        ],
+      },
     ],
   },
 };
