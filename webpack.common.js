@@ -27,19 +27,6 @@ module.exports = {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
         type: "asset/resource",
       },
-      {
-        test: /\.svg$/,
-        use: [
-          {
-            loader: "svg-url-loader",
-            options: {
-              // You can add options here, e.g., to inline small SVGs
-              limit: 10 * 1024, // 10 KB
-              noquotes: true,
-            },
-          },
-        ],
-      },
     ],
   },
 };
